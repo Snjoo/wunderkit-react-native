@@ -5,18 +5,41 @@ import {
   Text,
   View,
   TouchableHighlight,
-  NavigatorIOS
+  NavigatorIOS,
+  Image
 } from 'react-native';
 
 export default class Scene2 extends Component {
+  constructor() {
+    super()
+    this.state = {
+      backgroundColor: '#c8bfbf'
+    }
+  }
+
+  toggleBackgroundColor() {
+    if (this.state.backgroundColor === '#c8bfbf') {
+      this.setState({backgroundColor: '#6b6b47'})
+    } else {
+      this.setState({backgroundColor: '#c8bfbf'})
+    }
+  }
+
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, {backgroundColor: this.state.backgroundColor}]}>
         <View style={styles.welcomeContainer}>
           <Text style={styles.welcome}>
             This is second scene
           </Text>
+          <Image
+            source={{uri: 'https://raw.githubusercontent.com/wiki/facebook/react/react-logo-1000-transparent.png'}}
+            style={styles.image}
+          />
         </View>
+        <TouchableHighlight style={styles.button} onPress={() => this.toggleBackgroundColor()}>
+          <Text>Toggle color</Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -27,7 +50,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#c8bfbf',
   },
   welcomeContainer: {
     flex: 1,
@@ -46,18 +68,17 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
-  buttonsContainer: {
-    flex: 1,
-    flexDirection: 'row',
-  },
   button: {
-    flex: 1,
+    height: 40,
     borderWidth: 1,
     borderColor: '#000000',
     backgroundColor: '#a68888',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 40,
-    alignSelf: 'flex-end'
+    alignSelf: 'stretch'
+  },
+  image: {
+    resizeMode: 'contain',
+    height: 150,
   }
 });
