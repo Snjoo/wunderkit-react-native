@@ -10,10 +10,39 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  NavigatorIOS
 } from 'react-native';
 
 export default class wunderkit extends Component {
+  render() {
+    return (
+      <NavigatorIOS
+        initialRoute={{
+          component: FirstScene,
+          title: 'Welcome',
+        }}
+        style={{flex: 1}}
+      />
+    );
+  }
+}
+
+class FirstScene extends Component {
+  navigateToScene2() {
+    this.props.navigator.push({
+      title: 'Second scene',
+      component: Scene2,
+    });
+  }
+
+  navigateToScene3() {
+    this.props.navigator.push({
+      title: 'Third scene',
+      component: Scene3,
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -28,8 +57,36 @@ export default class wunderkit extends Component {
           </Text>
         </View>
         <View style={styles.buttonsContainer}>
-          <TouchableHighlight style={styles.button} onPress={() => console.log('Button 1 pressed')}><Text>Button 1</Text></TouchableHighlight>
-          <TouchableHighlight style={styles.button} onPress={() => console.log('Button 2 pressed')}><Text>Button 2</Text></TouchableHighlight>
+          <TouchableHighlight style={styles.button} onPress={() => this.navigateToScene2()}><Text>Scene 2</Text></TouchableHighlight>
+          <TouchableHighlight style={styles.button} onPress={() => this.navigateToScene3()}><Text>Scene 3</Text></TouchableHighlight>
+        </View>
+      </View>
+    );
+  }
+}
+
+class Scene2 extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.welcomeContainer}>
+          <Text style={styles.welcome}>
+            This is second scene
+          </Text>
+        </View>
+      </View>
+    );
+  }
+}
+
+class Scene3 extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.welcomeContainer}>
+          <Text style={styles.welcome}>
+            This is third scene
+          </Text>
         </View>
       </View>
     );
@@ -45,8 +102,7 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     flex: 1,
-    justifyContent: 'flex-start',
-    marginTop: 20,
+    justifyContent: 'center',
   },
   welcome: {
     fontSize: 20,
