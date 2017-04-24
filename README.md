@@ -8,5 +8,6 @@ Done so far:
 * Default React Native app as it is when initialized
 * Change some texts, add components, try different styles
 * Navigation with NavigatorIOS
+* Split the code from index.ios.js to separate files
 
 Check next branches to see more!
