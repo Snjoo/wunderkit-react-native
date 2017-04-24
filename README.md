@@ -9,5 +9,6 @@ Done so far:
 * Change some texts, add components, try different styles
 * Navigation with NavigatorIOS
 * Split the code from index.ios.js to separate files
+* Use Image component and play with component's state
 
 Check next branches to see more!
