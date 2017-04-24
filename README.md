@@ -6,5 +6,6 @@ Different stages of the app can be found from branches
 
 Done so far:
 * Default React Native app as it is when initialized
+* Change some texts, add components, try different styles
 
 Check next branches to see more!
