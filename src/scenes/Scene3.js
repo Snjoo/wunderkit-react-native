@@ -5,29 +5,46 @@ import {
   Text,
   View,
   TouchableHighlight,
-  NavigatorIOS
+  NavigatorIOS,
+  ScrollView
 } from 'react-native';
 
 export default class Scene3 extends Component {
+  constructor() {
+    super()
+    this.state = {
+      data: []
+    }
+  }
+
+  componentWillMount() {
+    fetch('https://raw.githubusercontent.com/Snjoo/wunderkit-react-native/07-fetch-scrollview/assets/generated.json')
+      .then(data => data.json())
+      .then(json => this.setState({data: json}))
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.welcomeContainer}>
-          <Text style={styles.welcome}>
-            This is third scene
-          </Text>
-        </View>
-      </View>
+      <ScrollView contentContainerStyle={styles.container}>
+        {this.state.data.map(person =>
+          <View style={styles.personContainer} key={person._id}>
+            <Text>{person.name}</Text>
+            <Text>{person.age}</Text>
+            <Text>{person.company}</Text>
+            <Text>{person.gender}</Text>
+          </View>
+        )}
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#c8bfbf',
+  },
+  personContainer: {
+    padding: 15,
   },
   welcomeContainer: {
     flex: 1,
