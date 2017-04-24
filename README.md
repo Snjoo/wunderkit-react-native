@@ -11,5 +11,6 @@ Done so far:
 * Split the code from index.ios.js to separate files
 * Use Image component and play with component's state
 * Snapshot tests for Scene2
+* Fetch some data in Scene3 and utilize ScrollView to display it
 
 Check next branches to see more!
