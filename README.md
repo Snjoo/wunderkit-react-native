@@ -13,4 +13,4 @@ Done so far:
 * Snapshot tests for Scene2
 * Fetch some data in Scene3 and utilize ScrollView to display it
 
-Check next branches to see more!
+That's it, you have completed the examples!
