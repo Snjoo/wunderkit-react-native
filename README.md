@@ -8,3 +8,5 @@ Done so far:
 * Default React Native app as it is when initialized
 
 Check next branches to see more!
+
+What was done during the workshop can be found from wunderkit-workshop branch
